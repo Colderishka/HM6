@@ -21,5 +21,3 @@ def test_run():
 
     driver.close()
     driver.quit()
-
-test_run()

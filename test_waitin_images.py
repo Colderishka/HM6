@@ -8,20 +8,15 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 def test_run():
-    driver = webdriver.Chrome(service=ChromeService(
-        ChromeDriverManager().install()))
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     driver.maximize_window()
 
-    driver.get(
-        "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
+    driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
     waiter = WebDriverWait(driver, 30)
-    waiter.until
-    {
-        EC.text_to_be_present_in_element( (By.CSS_SELECTOR, "#text"), "Done!" )
-    }
+    waiter.until(EC.text_to_be_present_in_element( (By.CSS_SELECTOR, "#text"), "Done!" ))
     atribute = driver.find_element(By.CSS_SELECTOR, "#award").get_attribute("src")
     print(atribute)
-    assert atribute == 'img/award.png'
+    assert atribute == 'https://bonigarcia.dev/selenium-webdriver-java/img/award.png'
 
     driver.close()
     driver.quit()
